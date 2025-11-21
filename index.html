@@ -1,21 +1,23 @@
 <!doctype html>
 <html lang="ca">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>🎮 Jocs Educatius</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Jocs Educatius</title>
+  <link rel="manifest" href="manifest.json">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-pink-50 via-yellow-50 to-blue-50 min-h-screen p-6 flex items-center justify-center">
-  <div class="max-w-xl w-full bg-white shadow-xl rounded-3xl p-8 text-center">
-    <h1 class="text-3xl font-extrabold mb-6">🌈 Jocs Educatius</h1>
-    <p class="text-gray-700 mb-6">Tria un joc per començar! Tots són en català i pensats per a infants.</p>
-
-    <div class="flex flex-col gap-4">
-      <a href="https://palomareswke-ai.github.io/TaulesMultiplicar" class="block w-full px-4 py-3 bg-amber-300 rounded-full shadow text-lg font-semibold hover:scale-[1.03] transition">➗ Repàs de les taules de multiplicar</a>
-      <a href="#joc2" class="block w-full px-4 py-3 bg-blue-300 rounded-full shadow text-lg font-semibold hover:scale-[1.03] transition">❓ Quiz de multiplicacions</a>
-      <a href="#joc3" class="block w-full px-4 py-3 bg-green-300 rounded-full shadow text-lg font-semibold hover:scale-[1.03] transition">🏰 Quiz sobre l'edat mitjana</a>
-    </div>
-  </div>
+<body class="p-6">
+  <h1 class="text-3xl font-bold">🌈 Jocs Educatius</h1>
+  <ul class="mt-4 space-y-4">
+    <li><a href="https://palomareswke-ai.github.io/TaulesMultiplicar" class="underline">Repàs taules</a></li>
+    <li><a href="#" class="underline">Quiz multiplicacions</a></li>
+    <li><a href="#" class="underline">Quiz edat mitjana</a></li>
+  </ul>
+  <script>
+    if("serviceWorker" in navigator){
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
 </body>
 </html>
