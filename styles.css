@@ -1,0 +1,51 @@
+/* styles.css — fallback bàsic per a desenvolupament / estils de seguretat */
+
+/* Reset molt simple */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+/* Body */
+body {
+  background: linear-gradient(135deg, #fff1f2 0%, #fffbeb 50%, #eff6ff 100%);
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenidor central */
+.max-w-xl { max-width: 720px; width: 100%; }
+.bg-white { background: white; }
+.shadow-xl { box-shadow: 0 10px 30px rgba(2,6,23,.08); }
+.rounded-3xl { border-radius: 28px; }
+.p-8 { padding: 32px; }
+.text-center { text-align: center; }
+
+/* Textos */
+.text-3xl { font-size: 1.875rem; line-height: 2.25rem; font-weight: 800; }
+.text-sm { font-size: .875rem; }
+.text-gray-700 { color: #374151; }
+
+/* Emoji grande */
+.big-emoji { font-size: 3.5rem !important; }
+
+/* Botons (classes simples que imiten Tailwind) */
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 9999px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #0f172a;
+  box-shadow: 0 6px 18px rgba(2,6,23,.06);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover { transform: translateY(-3px); }
+
+.btn-amber { background: #fbbf24; color: #082032; }
+.btn-blue { background: #60a5fa; color: #05203a; }
+.btn-green { background: #34d399; color: #03302b; }
+
+/* footer */
+footer { margin-top: 18px; color: #4b5563; font-size: 0.9rem; }
