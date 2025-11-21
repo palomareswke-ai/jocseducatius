@@ -1,22 +1,62 @@
 <!doctype html>
 <html lang="ca">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Jocs Educatius</title>
-  <link rel="manifest" href="manifest.json">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🎮 Jocs Educatius — PWA</title>
+
+  <!-- Manifest -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#f6e05e">
+  <meta name="description" content="Tres jocs educatius en català, instal·la i juga offline!">
+
+  <!-- Tailwind CDN + configuración inline para colores -->
   <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="p-6">
-  <h1 class="text-3xl font-bold">🌈 Jocs Educatius</h1>
-  <ul class="mt-4 space-y-4">
-    <li><a href="https://palomareswke-ai.github.io/TaulesMultiplicar" class="underline">Repàs taules</a></li>
-    <li><a href="#" class="underline">Quiz multiplicacions</a></li>
-    <li><a href="#" class="underline">Quiz edat mitjana</a></li>
-  </ul>
   <script>
-    if("serviceWorker" in navigator){
-      navigator.serviceWorker.register("service-worker.js");
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            amber: { 300: '#fbbf24' },
+            blue: { 300: '#60a5fa' },
+            green: { 300: '#34d399' },
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fallback CSS local -->
+  <link rel="stylesheet" href="./styles.css">
+
+  <style>
+    .big-emoji { font-size: clamp(2rem, 6vw, 4.5rem); line-height: 1; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-pink-50 via-yellow-50 to-blue-50 min-h-screen p-6 flex items-center justify-center">
+  <div class="max-w-xl w-full bg-white shadow-xl rounded-3xl p-8 text-center">
+    <div class="mb-4">
+      <div class="big-emoji">🌈</div>
+      <h1 class="text-3xl font-extrabold mt-2">Jocs Educatius — PWA</h1>
+      <p class="text-gray-700 mt-1">Tria un joc per començar. Tot en català i inclusiu.</p>
+    </div>
+
+    <div class="flex flex-col gap-4 mt-4">
+      <a class="btn btn-amber" href="https://palomareswke-ai.github.io/TaulesMultiplicar" target="_blank" rel="noopener noreferrer">➗ Repàs de les taules de multiplicar</a>
+      <a class="btn btn-blue" href="./joc2.html">❓ Quiz de multiplicacions</a>
+      <a class="btn btn-green" href="./joc3.html">🏰 Quiz sobre l'edat mitjana</a>
+    </div>
+
+    <footer class="text-sm text-gray-600 mt-6">
+      Fet amb cura — instal·la la app des del navegador o prova amb dispositiu mòbil.
+    </footer>
+  </div>
+
+  <script>
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(reg => console.log('SW registrat:', reg.scope))
+        .catch(err => console.warn('SW error:', err));
     }
   </script>
 </body>
