@@ -68,12 +68,25 @@
     </footer>
   </div>
 
-  <script>
-    if('serviceWorker' in navigator){
-      navigator.serviceWorker.register('./service-worker.js')
-        .then(reg => console.log('SW registrat:', reg.scope))
-        .catch(err => console.warn('SW error:', err));
-    }
-  </script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js').then(reg => {
+      reg.onupdatefound = () => {
+        const installingWorker = reg.installing;
+        installingWorker.onstatechange = () => {
+          if (installingWorker.state === 'installed') {
+            if (navigator.serviceWorker.controller) {
+              // Hay contenido nuevo disponible, forzamos recarga
+              console.log('Nova versió trobada, recarregant...');
+              window.location.reload();
+            }
+          }
+        };
+      };
+    });
+  }
+</script>
+  
 </body>
 </html>
