@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>🎮 Jocs Educatius — PWA</title>
+  <title>Jocs Educatius</title>
   <link rel="manifest" href="./manifest.json">
   <meta name="theme-color" content="#f6e05e">
   <meta name="description" content="Jocs educatius en català per aprendre i repassar.">
@@ -14,7 +14,7 @@
 </head>
 <body class="bg-gradient-to-br from-pink-50 via-yellow-50 to-blue-50 min-h-screen p-6 flex items-center justify-center">
 <div class="max-w-xl w-full bg-white shadow-xl rounded-3xl p-8 text-center">
-<div class="mb-4"><div class="big-emoji">🌈</div><h1 class="text-3xl font-extrabold mt-2">Jocs Educatius — PWA</h1><p class="text-gray-700 mt-1">Tria un joc per començar. Tot en català i inclusiu.</p></div>
+<div class="mb-4"><div class="big-emoji">🌈</div><h1 class="text-3xl font-extrabold mt-2">Jocs Educatius</h1><p class="text-gray-700 mt-1">Tria un joc per començar.</p></div>
 <div class="flex flex-col gap-4 mt-4">
 <a class="btn btn-amber" href="https://palomareswke-ai.github.io/TaulesMultiplicar" target="_blank" rel="noopener noreferrer">➗ Repàs de les taules de multiplicar</a>
 <a class="btn btn-blue" href="https://palomareswke-ai.github.io/quizmultiplicacions/" target="_blank" rel="noopener noreferrer">❓ Quiz de multiplicacions</a>
@@ -24,7 +24,6 @@
 <a class="btn btn-invets" href="https://palomareswke-ai.github.io/els-invets/" target="_blank" rel="noopener noreferrer">💡 Els invets</a>
 <a class="btn btn-amber" href="https://palomareswke-ai.github.io/mates-de-4rt/" target="_blank" rel="noopener noreferrer">🧮 Mates de 4rt</a>
 </div>
-<footer class="text-sm text-gray-600 mt-6">Fet amb cura — instal·la la app des del navegador o prova amb dispositiu mòbil.</footer>
 </div>
 <script>
 if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-worker.js').then(reg=>{reg.onupdatefound=()=>{const installingWorker=reg.installing;installingWorker.onstatechange=()=>{if(installingWorker.state==='installed'){if(navigator.serviceWorker.controller){console.log('Nova versió trobada, recarregant...');window.location.reload();}}};};});}
