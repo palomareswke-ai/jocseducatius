@@ -1,4 +1,4 @@
-const CACHE_NAME = 'jocs-edu-cache-v1';
+const CACHE_NAME = 'jocs-edu-cache-v2';
 const PRECACHE = [
   './',
   './index.html',
@@ -20,7 +20,26 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-  e.respondWith(caches.match(e.request).then(r => r || fetch(e.request).catch(() => {
-    if(e.request.headers.get('accept')?.includes('text/html')) return caches.match('./offline.html');
-  })));
+  const request = e.request;
+
+  if (request.mode === 'navigate' || (request.headers.get('accept') || '').includes('text/html')) {
+    e.respondWith(
+      fetch(request)
+        .then(response => {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(request, copy));
+          return response;
+        })
+        .catch(() => caches.match(request).then(cached => cached || caches.match('./offline.html')))
+    );
+    return;
+  }
+
+  e.respondWith(
+    caches.match(request).then(cached => cached || fetch(request).catch(() => {
+      if ((request.headers.get('accept') || '').includes('text/html')) {
+        return caches.match('./offline.html');
+      }
+    }))
+  );
 });
